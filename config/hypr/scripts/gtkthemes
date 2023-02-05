@@ -1,13 +1,8 @@
 #!/usr/bin/env bash
-
-## Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
-##
-## Set GTK Themes, Icons, Cursor and Fonts
-
-THEME='Manhattan'
-ICONS='Luv-Folders-Dark'
-FONT='Noto Sans 9'
-CURSOR='Bibata-Modern-Classic'
+THEME='Juno-mirage'
+ICONS='Luna-Dark'
+FONT='JetBrainMono Nerd Font 9'
+CURSOR='Bibata-Modern-Ice'
 
 SCHEMA='gsettings set org.gnome.desktop.interface'
 

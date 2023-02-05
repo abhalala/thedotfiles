@@ -11,9 +11,10 @@ dir="`xdg-user-dir PICTURES`/Screenshots"
 file="Screenshot_${time}_${RANDOM}.png"
 
 # notify and view screenshot
-notify_cmd_shot="notify-send -h string:x-canonical-private-synchronous:shot-notify -u low -i ${iDIR}/picture.png"
+notify_cmd_shot="notify-send -h string:x-canonical-private-synchronous:sys-notify-shot -u low -i ${iDIR}/picture.png"
 notify_view () {
 	${notify_cmd_shot} "Copied to clipboard."
+	paplay /usr/share/sounds/freedesktop/stereo/screen-capture.oga &>/dev/null &
 	viewnior ${dir}/"$file"
 	if [[ -e "$dir/$file" ]]; then
 		${notify_cmd_shot} "Screenshot Saved."
@@ -25,7 +26,7 @@ notify_view () {
 # countdown
 countdown () {
 	for sec in `seq $1 -1 1`; do
-		notify-send -h string:x-canonical-private-synchronous:shot-notify -t 1000 -i "$iDIR"/timer.png "Taking shot in : $sec"
+		notify-send -h string:x-canonical-private-synchronous:sys-notify-count -t 1000 -i "$iDIR"/timer.png "Taking shot in : $sec"
 		sleep 1
 	done
 }
@@ -56,7 +57,7 @@ shotwin () {
 }
 
 shotarea () {
-	cd ${dir} && grim -g "$(slurp -b 1B1F28CC -c E06B74ff -s C778DD0D -w 2)" - | tee "$file" | wl-copy
+	cd ${dir} && grim -g "$(slurp -b 20262CCC -c B4A1DBff -s B4A1DB0D -w 2)" - | tee "$file" | wl-copy
 	notify_view
 }
 

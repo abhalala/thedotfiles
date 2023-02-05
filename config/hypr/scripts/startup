@@ -16,13 +16,10 @@ done
 /usr/lib/xfce-polkit/xfce-polkit &
 
 # Set wallpaper
-swaybg --output '*' --mode fill --image /home/anshb/Pictures/Wallpapers/anime/conv-zero_two_red.png &
+swaybg --output '*' --mode fill --image ~/.config/hypr/wallpapers/wallpaper.jpg &
 
 # Apply themes
 ~/.config/hypr/scripts/gtkthemes &
-
-# Asusctl Tray
-asusctltray &
 
 # Lauch notification daemon (mako)
 ~/.config/hypr/scripts/notifications &
@@ -31,7 +28,7 @@ asusctltray &
 ~/.config/hypr/scripts/statusbar &
 
 # Start network manager applet
-#nm-applet --indicator &
+nm-applet --indicator &
 
 # Start mpd
 exec mpd &

@@ -12,7 +12,7 @@ COLORS="$HOME/.config/hypr/wofi/colors"
 ## Wofi Command
 wofi_command="wofi --show dmenu \
 			--conf ${CONFIG} --style ${STYLE} --color ${COLORS} \
-			--width=300 --height=165 \
+			--width=300 --height=215 \
 			--cache-file=/dev/null \
 			--hide-scroll --no-actions \
 			--define=matching=fuzzy"
@@ -60,7 +60,7 @@ open_menu () {
 			cdialog
 			if [[ "$?" == 0 ]]; then
 				mpc -q pause
-				amixer set Master mute
+				pulsemixer --mute
 				~/.config/hypr/scripts/lockscreen
 				systemctl suspend
 			else
@@ -70,7 +70,7 @@ open_menu () {
 		$logout)
 			cdialog
 			if [[ "$?" == 0 ]]; then
-				kill -9 -1
+				hyprctl dispatch exit 0
 			else
 				exit
 			fi
