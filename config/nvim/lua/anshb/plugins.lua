@@ -26,10 +26,10 @@ return require('packer').startup(function(use)
   }
 
   use({
-    'rose-pine/neovim',
-    as = 'rose-pine',
+    'catppuccin/nvim',
+    as = 'catppuccin',
     config = function()
-      vim.cmd('colorscheme rose-pine')
+      vim.cmd('colorscheme catppuccin-mocha')
     end
   })
 
@@ -44,7 +44,13 @@ return require('packer').startup(function(use)
     requires = {
       -- LSP Support
       {'neovim/nvim-lspconfig'},
-      {'williamboman/mason.nvim'},
+      {
+        'williamboman/mason.nvim',
+        config = function()
+        require("mason").setup()
+        require("mason-lspconfig").setup()
+        end
+      },
       {'williamboman/mason-lspconfig.nvim'},
 
       -- Autocompletion
